@@ -84,3 +84,37 @@ git tag v1.0.0
 ```bash
 git push origin v1.0.0
 ```
+
+
+## Question 2 & Question 3
+
+
+(Voir les fichiers de mon repo)
+
+
+## Exercice 3 - Le pipeline CI/CD et sécurité/secrets
+
+
+## Question 1 
+
+(voir le fichier dans le dossier .github/workflows de mon repo)
+
+## Question 2/A
+
+Pour enregistrer une clé secrète de facon sécurisée, je vais sur mon repo en question (donc elyas-gitspace/examen-devops
+dans mon cas, dans -> Settings -> Secrets et variables -> Actions -> New repository secret. Arrivé ici je saisi le nom
+ du secret ainsi que le secret en question
+
+## Question 2/B
+
+Pour intégrer le le secret dans mon workflow, cela se passe au moment du CD, après avoir désigné le trigger du pipeline (ici lorsque un push avec tag est détecté dans mon repo) :
+```yaml
+      - name: Déploiement
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: echo "Déploiement en cours..."
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+```
+
+
+
