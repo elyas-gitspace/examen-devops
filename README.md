@@ -55,3 +55,32 @@ Ce tableau liste tous les attributs qu'on doit stocker en base de données pour 
 | `date_envoi`     | DATETIME   | Horodatage de l'envoi du message                     |
 | `auteur`         | STRING     | Expéditeur du message (utilisateur ou IA)            |
 | `session_id`     | INT        | Regroupe les messages d'une même conversation        |
+
+
+
+# Exercice 2 — Git & Docker
+
+## Question 1A — User Story : Abonnement Premium
+
+En tant qu'utilisateur, je veux souscrire à un abonnement premium, afin d'accéder à des fonctionnalités avancées de DevOpsGPT sans limitations.
+
+## Question 1B — Commandes Git
+
+**1. Créer la branche et faire un commit :**
+```bash
+git checkout -b feature-premium-subscription
+git add .
+git commit -m "feat: ajout de l'abonnement premium"
+```
+
+**2. Fusionner sur main et créer le tag :**
+```bash
+git checkout main
+git merge feature-premium-subscription
+git tag v1.0.0
+```
+
+**3. Pousser le tag sur GitHub :**
+```bash
+git push origin v1.0.0
+```
