@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+
+  chat-api:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    networks:
+      - devopsgpt-network
+
+  chat-ui:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    networks:
+      - devopsgpt-network
+    depends_on:
+      - chat-api
+
+  cache:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - devopsgpt-network
+
+networks:
+  devopsgpt-network:
+    driver: bridge
